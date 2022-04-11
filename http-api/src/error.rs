@@ -28,6 +28,10 @@ pub enum Error {
     #[error("could not resolve head: {0}")]
     NoHead(&'static str),
 
+    /// SIWE authenthication issues
+    #[error("could not authenticate with SIWE: {0}")]
+    Siwe(&'static str),
+
     /// An error occured with radicle identities.
     #[error(transparent)]
     Identities(#[from] librad::git::identities::Error),
